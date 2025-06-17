@@ -1,18 +1,20 @@
 # 📘 My Name Box
 
-自分の名前や自己紹介をシンプルに表示する、HTML/CSS/JavaScript を使った練習用の自己紹介アプリです。  
+自己紹介をシンプルに表示する、HTML/CSS/JavaScript を使った練習用の自己紹介アプリです。  
 GitHub Pages を使って Web 公開しています。
 
 🔗 **[▶️ デモはこちら](https://magitai-texia.github.io/My-Name-Box/)**
 
 ---
 
-## 🚀 特長
+## 🚀 機能詳細
 
-- 名前やメッセージを美しく表示
-- CSSによる色やレイアウトのカスタマイズ
-- JavaScriptで簡単な動作の制御
-
+- 名前やメッセージを美しく表示するシンプルな自己紹介ページ
+- CSSで色やレイアウトを調整し、見た目を整備
+- JavaScriptで操作や切り替えの処理を実装
+- **LocalStorageにデータを保存**：リロードしても入力内容が保持される
+- **ダークモード切り替え機能付き**：ユーザーが好みの表示モードを選択できる
+  
 ---
 
 ## 🛠 使用技術
@@ -20,7 +22,6 @@ GitHub Pages を使って Web 公開しています。
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![MIT License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ---
 
