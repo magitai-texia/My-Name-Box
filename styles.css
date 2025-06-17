@@ -1,0 +1,430 @@
+/* ====== 基本レイアウト ====== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+html {
+    height: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px; /* ← 拡大して横並びスペースを確保 */
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* ====== 見出し・ラベル ====== */
+h1, h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* ====== 共通フォームレイアウト ====== */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+/* 入力欄（氏名・検索）を統一 */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* 入力欄フォーカス時 */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ====== ボタン行 ====== */
+.form-buttons {
+  display: flex;
+  flex-direction: row; /* 横並びに */
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+/* ====== ボタンスタイル統一 ====== */
+.form-buttons button,
+button {
+  height: 40px;
+  min-width: 100px;
+  padding: 0 16px;
+  font-size: 16px;
+  line-height: 40px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.form-buttons button:hover,
+button:hover {
+  background-color: #45a049;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* ====== 特定ボタンの追加スタイル（必要に応じて） ====== */
+.save-btn {
+    background-color: #007bff;
+}
+.save-btn:hover {
+    background-color: #0056b3;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+}
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* ====== メッセージ ====== */
+#message {
+  min-height: 1.5em;            /* メッセージ1行分の高さを確保 */
+  opacity: 0;                  /* 初期は透明 */
+  transition: opacity 0.3s ease; /* フェード効果 */
+  color: #333;
+  margin-top: 10px;            /* お好みで間隔調整 */
+}
+
+#message.show {
+  opacity: 1;                  /* 表示状態 */
+}
+
+#message.error {
+    color: red;
+}
+
+/* ====== 履歴リスト全体のスタイル ====== */
+#historyList {
+  width: 100%;       /* 親幅にぴったり */
+  padding-left: 0;   /* 左の余白削除 */
+  margin-left: 0;
+}
+
+#historyList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  background-color: #f0f0f5;
+  padding: 10px;
+  margin: 8px 0;
+  border-left: 4px solid #4CAF50;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap; /* 必要なら折り返し対応 */
+}
+
+/* ====== ボタングループを右端に並べる ====== */
+.button-group {
+  display: flex;
+  gap: 6px;
+}
+
+/* ===== 編集・削除ボタン共通 ===== */
+.edit-btn,
+.delete-btn,
+.save-btn,
+.cancel-btn {
+  padding: 4px 10px;
+  font-size: 13px;
+  height: auto;
+  min-width: 60px;
+  line-height: 1.2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ===== 編集ボタン ===== */
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* ===== 削除ボタン ===== */
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* ===== 保存ボタン ===== */
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+/* ===== キャンセルボタン ===== */
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+
+/* 編集モード：左側を横並びにする */
+.edit-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-time {
+  font-weight: bold;
+  color: #333;
+}
+
+.edit-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* 横幅が足りなければ折り返す */
+  max-width: 100%;  /* 親幅を超えない */
+}
+
+.edit-left > input.edit-input.name {
+  flex: 1 1 200px; /* 最小200pxは確保しつつ伸縮 */
+  min-width: 150px;
+}
+
+.edit-left > select.edit-input.gender {
+  flex: 0 0 100px; /* 固定幅 */
+  min-width: 100px;
+}
+
+.edit-left > input.edit-input.birthdate {
+  flex: 0 0 140px; /* 固定幅 */
+  min-width: 140px;
+}
+
+.edit-left > input.edit-input.birthdate {
+  flex: 0 0 160px;
+  min-width: 160px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* ====== ダークモード ====== */
+body.dark {
+    background-color: #222;
+    color: #eee;
+}
+
+body.dark .container {
+    background-color: #333;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark input[type="text"],
+body.dark button {
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #666;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark label {
+    color: #eee;
+}
+
+body.dark button:hover {
+    background-color: #666;
+}
+
+body.dark #message {
+    color: #fff;
+}
+
+/* ====== トグルスイッチ ====== */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.toggle-label {
+    font-size: 16px;
+    color: #333;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 20px; width: 20px;
+    left: 3px; bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #777;
+}
+
+input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+/* ===== 横並びのレイアウト対応 ===== */
+.main-layout {
+  display: flex !important;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+/* フォーム全体の幅を最大60%に制限して横幅のバランスを調整 */
+.form-section {
+  flex: 1;
+  min-width: 260px;
+  max-width: 60%;
+}
+
+/* 入力欄の幅を少し狭くして余白を確保 */
+.form-row input[type="text"],
+.form-row input[type="number"],
+.form-row select {
+  width: 90%;          /* 100% → 90%に縮小 */
+  max-width: 400px;    /* 横に広がりすぎないように最大幅 */
+}
+.form-row input[type="date"] {
+  width: 90%;
+  max-width: 400px;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* 性別・年齢フォームの横並び調整 */
+.form-row.horizontal {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row.horizontal .form-group {
+  flex: 1;
+  min-width: 120px;  /* 少し小さめ */
+}
+
+/* 履歴欄の横幅を少し狭めて調整 */
+.history-section {
+  flex: 1;
+  min-width: 240px;
+  max-width: 400px;    /* 広げる */
+  width: 400px;        /* 固定にしているなら同じ値に */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.history-section h2 {
+  margin-top: 0;      /* 上マージンをなくす */
+  margin-bottom: 12px; /* 下マージンは適度に */
+}
+
+/* スマホや狭い画面では縦並びに戻し、入力欄は幅100%に */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .form-section, .history-section {
+    max-width: 100%;
+  }
+
+  .form-row input[type="text"],
+  .form-row input[type="number"],
+  .form-row select {
+    width: 100%;
+    max-width: none;
+  }
+}

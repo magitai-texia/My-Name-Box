@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Name Box</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>My Name Box</h1>
+    <p id="message"></p>
+
+    <!-- 横並びのレイアウト -->
+    <div class="main-layout">
+      
+      <!-- 左：フォーム -->
+      <div class="form-section">
+
+        <!-- トグルスイッチ -->
+        <div class="theme-switch-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+          </label>
+          <span class="toggle-label">ダークモード</span>
+        </div>
+
+        <!-- 氏名フォーム -->
+        <div class="form-row">
+          <label for="fullName">氏名：</label>
+          <input type="text" id="fullName" placeholder="例：山田 太郎" />
+        </div>
+
+        <!-- 性別・年齢フォーム -->
+        <div class="form-row horizontal">
+          <div class="form-group">
+            <label for="gender">性別：</label>
+            <select id="gender">
+              <option value="">選択してください</option>
+              <option value="男性">男性</option>
+              <option value="女性">女性</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="birthDate">生年月日：</label>
+            <input type="date" id="birthDate" />
+          </div>
+        </div>
+
+        <!-- 送信・リセットボタン -->
+        <div class="form-row">
+          <div class="form-buttons">
+            <button id="myButton">送信</button>
+            <button id="resetButton">リセット</button>
+          </div>
+        </div>
+
+        <!-- 検索フォーム -->
+        <div class="form-row">
+          <label for="searchInput">履歴検索：</label>
+          <input type="text" id="searchInput" placeholder="名前で検索" />
+        </div>
+        <div class="form-row">
+          <div class="form-buttons">
+            <button id="searchButton">検索</button>
+            <button id="clearSearchButton">クリア</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：履歴 -->
+      <div class="history-section">
+        <h2>入力履歴</h2>
+        <ul id="historyList"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
